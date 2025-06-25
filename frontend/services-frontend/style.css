@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f7f9fc;
+  color: #222;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px 0;
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #7F53AC 0%, #647DEE 100%);
+  padding: 16px 0;
+  box-shadow: 0 2px 8px rgba(100, 125, 222, 0.04);
+}
+
+.logo {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Navigation */
+nav {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(100, 125, 222, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  list-style: none;
+  padding: 12px 0;
+  margin: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #7F53AC;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  background: linear-gradient(90deg, #7F53AC, #647DEE);
+  color: #fff;
+}
+
+/* Services Section */
+main {
+  padding: 40px 20px;
+}
+
+#services {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#services h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #010101;
+  margin-bottom: 10px;
+}
+
+#services > p {
+  font-size: 1.15rem;
+  margin-bottom: 40px;
+  color: #444;
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+}
+
+/* Service Card */
+.service-item {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(100, 125, 222, 0.08);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 32px rgba(100, 125, 222, 0.15);
+}
+
+.service-image {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.service-item h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #7F53AC;
+  margin: 12px 0;
+}
+
+.service-item p {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.service-item ul {
+  padding-left: 18px;
+  list-style-type: disc;
+  color: #444;
+}
+
+.service-item ul li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+/* Footer */
+footer {
+  background: #fff;
+  text-align: center;
+  padding: 18px 0;
+  font-size: 0.95rem;
+  color: #888;
+  border-top: 1px solid #e3e8ee;
+  margin-top: 40px;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #services h1 {
+    font-size: 2rem;
+  }
+}

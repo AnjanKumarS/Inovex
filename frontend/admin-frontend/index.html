@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inovexa - Admin Portal</title>
+    <link rel="stylesheet" href="/admin-frontend/style.css">
+    <style>
+        .admin-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 24px rgba(100, 125, 222, 0.13);
+            padding: 32px 32px 40px 32px;
+        }
+
+        .admin-login {
+            max-width: 400px;
+            margin: 60px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(100, 125, 222, 0.09);
+            padding: 32px 24px;
+        }
+
+        .admin-login h2 {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .admin-login label {
+            font-weight: 600;
+        }
+
+        .admin-login input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 18px 0;
+            border-radius: 7px;
+            border: 1px solid #e3e8ee;
+        }
+
+        .admin-login button {
+            width: 100%;
+            background: var(--primary-gradient);
+            color: #fff;
+            padding: 14px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.08rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .admin-login button:hover {
+            background: linear-gradient(90deg, #647DEE 0%, #7F53AC 100%);
+        }
+
+        .admin-section {
+            margin-bottom: 48px;
+        }
+
+        .admin-section h2 {
+            margin-bottom: 18px;
+            color: #7F53AC;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 32px;
+        }
+
+        .admin-table th,
+        .admin-table td {
+            border: 1px solid #e3e8ee;
+            padding: 12px 10px;
+            text-align: left;
+        }
+
+        .admin-table th {
+            background: #f6f8fa;
+            color: #647DEE;
+            font-weight: 700;
+        }
+
+        .admin-table tr:nth-child(even) {
+            background: #f9f9fc;
+        }
+
+        .admin-table tr:hover {
+            background: #e3e8ee;
+        }
+
+        .logout-btn {
+            float: right;
+            background: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 18px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 18px;
+        }
+
+        .logout-btn:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Inovexa</div>
+        </div>
+    </header>
+    <nav>
+        <ul style="display: flex; justify-content: center; align-items: center; gap: 18px;">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/industries">Industries</a></li>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li style="margin-left:32px;"><a href="/admin-frontend/index.html">Admin Login</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div id="admin-login" class="admin-login">
+            <h2>Admin Login</h2>
+            <form id="loginForm">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+            <div id="login-error" style="color:#e74c3c; text-align:center; margin-top:10px; display:none;">Invalid
+                credentials</div>
+        </div>
+        <div id="admin-dashboard" class="admin-container" style="display:none;">
+            <button class="logout-btn" onclick="logout()">Logout</button>
+            <div class="admin-section">
+                <h2>Careers Submissions</h2>
+                <table class="admin-table" id="careers-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Message</th>
+                            <th>Resume Path</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="admin-section">
+                <h2>Contact Submissions</h2>
+                <table class="admin-table" id="contacts-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Inovexa. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const loginDiv = document.getElementById('admin-login');
+        const dashboardDiv = document.getElementById('admin-dashboard');
+        const loginError = document.getElementById('login-error');
+
+        loginForm.onsubmit = function (e) {
+            e.preventDefault();
+            const username = loginForm.username.value;
+            const password = loginForm.password.value;
+            if (username === 'admin' && password === 'admin123') {
+                loginDiv.style.display = 'none';
+                dashboardDiv.style.display = 'block';
+                loginError.style.display = 'none';
+                loadCareers();
+                loadContacts();
+            } else {
+                loginError.style.display = 'block';
+            }
+        };
+        function logout() {
+            dashboardDiv.style.display = 'none';
+            loginDiv.style.display = 'block';
+            loginForm.reset();
+        }
+        function loadCareers() {
+            fetch('http://localhost:5002/admin/applications')
+                .then(res => res.json())
+                .then(data => {
+                    const tbody = document.querySelector('#careers-table tbody');
+                    tbody.innerHTML = '';
+                    (data.applications || []).forEach(app => {
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `<td>${app.name}</td><td>${app.email}</td><td>${app.message}</td><td>${app.resume_path}</td>`;
+                        tbody.appendChild(tr);
+                    });
+                })
+                .catch(() => {
+                    const tbody = document.querySelector('#careers-table tbody');
+                    tbody.innerHTML = '<tr><td colspan="4">Could not load data</td></tr>';
+                });
+        }
+        function loadContacts() {
+            fetch('http://localhost:5001/admin/contacts')
+                .then(res => res.json())
+                .then(data => {
+                    const tbody = document.querySelector('#contacts-table tbody');
+                    tbody.innerHTML = '';
+                    (data.contacts || []).forEach(contact => {
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `<td>${contact.name}</td><td>${contact.email}</td><td>${contact.message}</td>`;
+                        tbody.appendChild(tr);
+                    });
+                })
+                .catch(() => {
+                    const tbody = document.querySelector('#contacts-table tbody');
+                    tbody.innerHTML = '<tr><td colspan="3">Could not load data</td></tr>';
+                });
+        }
+    </script>
+</body>
+
+</html>

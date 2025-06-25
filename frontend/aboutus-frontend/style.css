@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafc;
+  color: #222;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px 0;
+}
+
+header {
+  background: linear-gradient(90deg, #7F53AC 0%, #647DEE 100%);
+  padding: 16px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+nav {
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 0;
+  padding: 10px 0;
+}
+
+nav ul li a {
+  color: #7F53AC;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  background: linear-gradient(90deg, #7F53AC, #647DEE);
+  color: #fff;
+}
+
+main {
+  padding: 40px 0;
+}
+
+section#about-us h1 {
+  font-size: 2.5rem;
+  color: #222;
+  margin-bottom: 24px;
+}
+
+section#about-us p {
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  max-width: 900px;
+}
+
+section#about-us h2 {
+  font-size: 1.8rem;
+  margin-top: 36px;
+  margin-bottom: 16px;
+  color: #7F53AC;
+}
+
+section#about-us ul {
+  padding-left: 20px;
+  margin-top: -12px;
+}
+
+section#about-us ul li {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.team-member {
+  text-align: center;
+  max-width: 220px;
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(100, 125, 222, 0.1);
+  transition: transform 0.2s;
+}
+
+.team-member:hover {
+  transform: scale(1.04);
+}
+
+.team-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.team-member h3 {
+  margin: 8px 0 4px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.team-member p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+footer {
+  background: #fff;
+  border-top: 1px solid #ddd;
+  padding: 16px 0;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #888;
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .logo {
+    text-align: center;
+  }
+
+  section#about-us h1 {
+    font-size: 2rem;
+  }
+
+  .team-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}

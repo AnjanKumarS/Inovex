@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inovexa - Auth</title>
+    <link rel="stylesheet" href="/auth-frontend/style.css">
+    <style>
+        .auth-container {
+            max-width: 400px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(100, 125, 222, 0.09);
+            padding: 32px 24px;
+        }
+
+        .auth-toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .auth-toggle button {
+            margin: 0 8px;
+            padding: 10px 24px;
+            border-radius: 6px;
+            border: none;
+            background: #647DEE;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .auth-toggle button.active {
+            background: #7F53AC;
+        }
+
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Inovexa</div>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/industries">Industries</a></li>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/auth-frontend/index.html" class="active">Login/Register</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="auth-container">
+            <div class="auth-toggle">
+                <button id="show-login" class="active" type="button">Login</button>
+                <button id="show-register" type="button">Register</button>
+            </div>
+            <form id="login-form" class="auth-form active">
+                <h2>Login</h2>
+                <label for="login-username">Username</label>
+                <input type="text" id="login-username" name="username" required>
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+            <form id="register-form" class="auth-form">
+                <h2>Register</h2>
+                <label for="register-username">Username</label>
+                <input type="text" id="register-username" name="username" required>
+                <label for="register-email">Email</label>
+                <input type="email" id="register-email" name="email" required>
+                <label for="register-password">Password</label>
+                <input type="password" id="register-password" name="password" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Inovexa. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        // Toggle between login and register forms
+        const showLogin = document.getElementById('show-login');
+        const showRegister = document.getElementById('show-register');
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+        showLogin.onclick = function () {
+            showLogin.classList.add('active');
+            showRegister.classList.remove('active');
+            loginForm.classList.add('active');
+            registerForm.classList.remove('active');
+        };
+        showRegister.onclick = function () {
+            showRegister.classList.add('active');
+            showLogin.classList.remove('active');
+            registerForm.classList.add('active');
+            loginForm.classList.remove('active');
+        };
+        // Handle login form submit
+        loginForm.onsubmit = function (e) {
+            e.preventDefault();
+            fetch('http://localhost:5000/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    username: loginForm.username.value,
+                    password: loginForm.password.value
+                })
+            })
+                .then(res => res.json())
+                .then(data => alert(data.message))
+                .catch(() => alert('Login failed.'));
+        };
+        // Handle register form submit
+        registerForm.onsubmit = function (e) {
+            e.preventDefault();
+            fetch('http://localhost:5000/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    username: registerForm.username.value,
+                    email: registerForm.email.value,
+                    password: registerForm.password.value
+                })
+            })
+                .then(res => res.json())
+                .then(data => alert(data.message))
+                .catch(() => alert('Registration failed.'));
+        };
+    </script>
+</body>
+
+</html>

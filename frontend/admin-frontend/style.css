@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #222;
+    background: #f6f8fa;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+header {
+    background: linear-gradient(90deg, #7F53AC 0%, #647DEE 100%);
+    padding: 10px 0;
+    border-bottom: 1px solid #e3e8ee;
+    box-shadow: 0 2px 8px rgba(100, 125, 222, 0.04);
+    position: relative;
+    z-index: 10;
+}
+
+header .logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px rgba(100, 125, 222, 0.13);
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(100, 125, 222, 0.07);
+    transition: box-shadow 0.3s;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background: transparent;
+}
+nav ul li a {
+    display: block;
+    padding: 15px 28px;
+    color: #7F53AC;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.08rem;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+nav ul li a:hover, nav ul li a.active {
+    background: linear-gradient(90deg, #7F53AC 0%, #647DEE 100%);
+    color: #fff;
+}
+
+main {
+    padding: 0;
+}
+
+.admin-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 24px rgba(100, 125, 222, 0.13);
+    padding: 32px 32px 40px 32px;
+}
+
+.admin-login {
+    max-width: 400px;
+    margin: 60px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(100, 125, 222, 0.09);
+    padding: 32px 24px;
+}
+
+.admin-login h2 {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.admin-login label {
+    font-weight: 600;
+}
+
+.admin-login input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 18px 0;
+    border-radius: 7px;
+    border: 1px solid #e3e8ee;
+}
+
+.admin-login button {
+    width: 100%;
+    background: linear-gradient(90deg, #b7a7e6 0%, #b3c6f7 100%);
+    color: #fff;
+    padding: 14px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.08rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.admin-login button:hover {
+    background: linear-gradient(90deg, #647DEE 0%, #7F53AC 100%);
+}
+
+section {
+    margin-bottom: 48px;
+    padding: 40px 24px;
+    border-radius: 18px;
+    background: linear-gradient(120deg, #fff 80%, #e3e8ee 100%);
+    box-shadow: 0 2px 16px rgba(100, 125, 222, 0.04);
+}
+
+.admin-section {
+    margin-bottom: 48px;
+}
+
+.admin-section h2 {
+    margin-bottom: 18px;
+    color: #7F53AC;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 32px;
+}
+
+.admin-table th,
+.admin-table td {
+    border: 1px solid #e3e8ee;
+    padding: 12px 10px;
+    text-align: left;
+}
+
+.admin-table th {
+    background: #f6f8fa;
+    color: #647DEE;
+    font-weight: 700;
+}
+
+.admin-table tr:nth-child(even) {
+    background: #f9f9fc;
+}
+
+.admin-table tr:hover {
+    background: #e3e8ee;
+}
+
+.logout-btn {
+    float: right;
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 18px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 18px;
+}
+
+.logout-btn:hover {
+    background: #c0392b;
+}
+
+footer {
+    background: #fff;
+    padding: 18px 0;
+    text-align: center;
+    color: #888;
+    font-size: 1rem;
+    border-top: 1px solid #e3e8ee;
+    margin-top: 40px;
+}
+
+@media (max-width: 900px) {
+    .container { width: 95%; }
+    .admin-container { padding: 16px 4px 24px 4px; }
+}
+@media (max-width: 600px) {
+    .container { width: 100%; padding: 10px 0; }
+    nav ul { flex-direction: column; }
+    nav ul li a { padding: 10px; }
+    header .logo { font-size: 1.3rem; }
+    .admin-container { padding: 8px 2px 12px 2px; }
+}
+

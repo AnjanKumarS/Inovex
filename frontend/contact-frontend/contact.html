@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inovexa - Contact Us</title>
+    <link rel="stylesheet" href="/contact-frontend/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Inovexa</div>
+        </div>
+    </header>
+    <nav>
+        <ul style="display: flex; justify-content: center; align-items: center; gap: 18px;">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/industries">Industries</a></li>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li style="margin-left:32px;"><a href="/admin-frontend/index.html">Admin Login</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="contact">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
+                alt="Contact Inovexa" class="main-image" />
+            <h1>Contact Us</h1>
+            <p>Have a question or need a consultation? Reach out to us!</p>
+
+            <form id="contact-form">
+                <label for="contact-name">Name:</label>
+                <input type="text" id="contact-name" name="name" required>
+
+                <label for="contact-email">Email:</label>
+                <input type="email" id="contact-email" name="email" required>
+
+                <label for="contact-message">Message:</label>
+                <textarea id="contact-message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Inovexa. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

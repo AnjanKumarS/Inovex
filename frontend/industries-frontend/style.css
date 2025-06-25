@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f7f9fc;
+  color: #222;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px 0;
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #7F53AC 0%, #647DEE 100%);
+  padding: 16px 0;
+  box-shadow: 0 2px 8px rgba(100, 125, 222, 0.04);
+}
+
+.logo {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Navigation */
+nav {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(100, 125, 222, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  list-style: none;
+  padding: 12px 0;
+  margin: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #7F53AC;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  background: linear-gradient(90deg, #7F53AC, #647DEE);
+  color: #fff;
+}
+
+/* Main Section */
+main {
+  padding: 40px 20px;
+}
+
+#industries {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#industries h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #010101;
+  margin-bottom: 10px;
+}
+
+#industries > p {
+  font-size: 1.15rem;
+  margin-bottom: 40px;
+  color: #444;
+}
+
+/* Industry Grid */
+.industries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  padding: 0 10px;
+}
+
+.industry-item {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(100, 125, 222, 0.08);
+  padding: 24px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.industry-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 32px rgba(100, 125, 222, 0.15);
+}
+
+.industry-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+.industry-item h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #7F53AC;
+  margin: 12px 0;
+}
+
+.industry-item p {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Footer */
+footer {
+  background: #fff;
+  text-align: center;
+  padding: 18px 0;
+  font-size: 0.95rem;
+  color: #888;
+  border-top: 1px solid #e3e8ee;
+  margin-top: 40px;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #industries h1 {
+    font-size: 2rem;
+  }
+}
